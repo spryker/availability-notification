@@ -16,11 +16,6 @@ use Propel\Runtime\Collection\ObjectCollection;
 
 class AvailabilityNotificationSubscriptionMapper implements AvailabilityNotificationSubscriptionMapperInterface
 {
-    /**
-     * @param \Orm\Zed\AvailabilityNotification\Persistence\SpyAvailabilityNotificationSubscription $availabilityNotificationSubscriptionEntity
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer
-     */
     public function mapAvailabilityNotificationSubscriptionTransfer(
         SpyAvailabilityNotificationSubscription $availabilityNotificationSubscriptionEntity
     ): AvailabilityNotificationSubscriptionTransfer {

@@ -25,23 +25,11 @@ class AvailabilityNotificationToGlossaryFacadeBridge implements AvailabilityNoti
         $this->glossaryFacade = $glossaryFacade;
     }
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer|null $localeTransfer
-     *
-     * @return bool
-     */
     public function hasTranslation(string $keyName, ?LocaleTransfer $localeTransfer = null): bool
     {
         return $this->glossaryFacade->hasTranslation($keyName, $localeTransfer);
     }
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\TranslationTransfer
-     */
     public function getTranslation(string $keyName, LocaleTransfer $localeTransfer): TranslationTransfer
     {
         return $this->glossaryFacade->getTranslation($keyName, $localeTransfer);

@@ -22,13 +22,6 @@ class AvailabilityNotificationDataHelper extends Module
 {
     use LocatorHelperTrait;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\CustomerTransfer|null $customerTransfer
-     * @param array $seedData
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer
-     */
     public function haveAvailabilityNotificationSubscriptionTransfer(
         ProductConcreteTransfer $productConcreteTransfer,
         ?CustomerTransfer $customerTransfer = null,
@@ -45,13 +38,6 @@ class AvailabilityNotificationDataHelper extends Module
         return $availabilityNotificationSubscriptionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\CustomerTransfer|null $customerTransfer
-     * @param array $seedData
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     public function haveAvailabilityNotificationSubscription(
         ProductConcreteTransfer $productConcreteTransfer,
         ?CustomerTransfer $customerTransfer = null,
@@ -64,12 +50,6 @@ class AvailabilityNotificationDataHelper extends Module
         return $result->getAvailabilityNotificationSubscription();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param array $seedData
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationDataTransfer
-     */
     public function haveAvailabilityNotificationDataTransfer(
         ProductConcreteTransfer $productConcreteTransfer,
         array $seedData = []
@@ -79,9 +59,6 @@ class AvailabilityNotificationDataHelper extends Module
             ->setSku($productConcreteTransfer->getSku());
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\AvailabilityNotificationFacade
-     */
     protected function getAvailabilityNotificationSubscriptionFacade(): AvailabilityNotificationFacade
     {
         return $this->getLocator()->availabilityNotification()->facade();

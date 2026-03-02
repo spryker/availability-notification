@@ -9,8 +9,5 @@ namespace Spryker\Zed\AvailabilityNotification\Business\Subscription;
 
 interface AvailabilityNotificationSubscriptionKeyGeneratorInterface
 {
-    /**
-     * @return string
-     */
     public function generateKey(): string;
 }

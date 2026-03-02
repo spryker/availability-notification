@@ -20,13 +20,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class AvailabilityNotificationRepository extends AbstractRepository implements AvailabilityNotificationRepositoryInterface
 {
-    /**
-     * @param string $email
-     * @param string $sku
-     * @param int $fkStore
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneByEmailAndSku(
         string $email,
         string $sku,
@@ -47,11 +40,6 @@ class AvailabilityNotificationRepository extends AbstractRepository implements A
         return $this->getFactory()->createAvailabilityNotificationSubscriptionMapper()->mapAvailabilityNotificationSubscriptionTransfer($availabilityNotificationSubscriptionEntity);
     }
 
-    /**
-     * @param string $subscriptionKey
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneBySubscriptionKey(string $subscriptionKey): ?AvailabilityNotificationSubscriptionTransfer
     {
         $availabilityNotificationSubscriptionEntity = $this->querySubscription()
@@ -65,13 +53,6 @@ class AvailabilityNotificationRepository extends AbstractRepository implements A
         return $this->getFactory()->createAvailabilityNotificationSubscriptionMapper()->mapAvailabilityNotificationSubscriptionTransfer($availabilityNotificationSubscriptionEntity);
     }
 
-    /**
-     * @param string $customerReference
-     * @param string $sku
-     * @param int $fkStore
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneByCustomerReferenceAndSku(
         string $customerReference,
         string $sku,
@@ -133,20 +114,11 @@ class AvailabilityNotificationRepository extends AbstractRepository implements A
         return $availabilityNotificationSubscriptionCollectionTransfer;
     }
 
-    /**
-     * @return \Orm\Zed\AvailabilityNotification\Persistence\SpyAvailabilityNotificationSubscriptionQuery
-     */
     protected function querySubscription(): SpyAvailabilityNotificationSubscriptionQuery
     {
         return $this->getFactory()->createAvailabilityNotificationSubscriptionQuery();
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\ModelCriteria $query
-     * @param \Generated\Shared\Transfer\PaginationTransfer $paginationTransfer
-     *
-     * @return \Propel\Runtime\ActiveQuery\ModelCriteria
-     */
     protected function preparePagination(ModelCriteria $query, PaginationTransfer $paginationTransfer): ModelCriteria
     {
         $page = $paginationTransfer

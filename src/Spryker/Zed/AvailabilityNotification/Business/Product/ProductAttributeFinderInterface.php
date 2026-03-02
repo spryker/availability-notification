@@ -13,31 +13,13 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface ProductAttributeFinderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return string|null
-     */
     public function findProductName(ProductConcreteTransfer $productConcreteTransfer, LocaleTransfer $localeTransfer): ?string;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string|null
-     */
     public function findProductUrl(
         ProductConcreteTransfer $productConcreteTransfer,
         LocaleTransfer $localeTransfer,
         ?StoreTransfer $storeTransfer = null
     ): ?string;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return string|null
-     */
     public function findExternalProductImage(ProductConcreteTransfer $productConcreteTransfer): ?string;
 }

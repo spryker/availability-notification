@@ -28,10 +28,6 @@ class StoreYvesBaseUrlGetStrategy implements BaseUrlGetStrategyInterface
      */
     protected AvailabilityNotificationToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\AvailabilityNotificationConfig $availabilityNotificationConfig
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         AvailabilityNotificationConfig $availabilityNotificationConfig,
         AvailabilityNotificationToStoreFacadeInterface $storeFacade
@@ -40,11 +36,6 @@ class StoreYvesBaseUrlGetStrategy implements BaseUrlGetStrategyInterface
         $this->storeFacade = $storeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return bool
-     */
     public function isApplicable(?StoreTransfer $storeTransfer = null): bool
     {
         if (!$storeTransfer || !$storeTransfer->getName()) {
@@ -59,11 +50,6 @@ class StoreYvesBaseUrlGetStrategy implements BaseUrlGetStrategyInterface
         return isset($this->availabilityNotificationConfig->getRegionToYvesHostMapping()[$this->availabilityNotificationConfig->getCurrentRegion()]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string
-     */
     public function getBaseUrl(?StoreTransfer $storeTransfer = null): string
     {
         if (!$storeTransfer) {
@@ -82,11 +68,6 @@ class StoreYvesBaseUrlGetStrategy implements BaseUrlGetStrategyInterface
         return $this->generateBaseUrl($yvesHost);
     }
 
-    /**
-     * @param string $yvesHost
-     *
-     * @return string
-     */
     protected function generateBaseUrl(string $yvesHost): string
     {
         return sprintf(

@@ -34,9 +34,6 @@ class AvailabilityNotificationUnsubscriptionSenderTest extends Unit
      */
     protected AvailabilityNotificationBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testSendNotificationSendsMailTransferExpandedWithStoreName(): void
     {
         //Arrange

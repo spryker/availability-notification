@@ -38,12 +38,6 @@ class AvailabilityNotificationUnsubscriptionSender implements AvailabilityNotifi
      */
     protected $productAttributeFinder;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToMailFacadeInterface $mailFacade
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\UrlGeneratorInterface $urlGenerator
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Product\ProductAttributeFinderInterface $productAttributeFinder
-     */
     public function __construct(
         AvailabilityNotificationToMailFacadeInterface $mailFacade,
         AvailabilityNotificationToProductFacadeInterface $productFacade,
@@ -56,11 +50,6 @@ class AvailabilityNotificationUnsubscriptionSender implements AvailabilityNotifi
         $this->productAttributeFinder = $productAttributeFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return void
-     */
     public function send(AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer): void
     {
         $productConcreteTransfer = $this->productFacade->getProductConcrete($availabilityNotificationSubscriptionTransfer->getSku());

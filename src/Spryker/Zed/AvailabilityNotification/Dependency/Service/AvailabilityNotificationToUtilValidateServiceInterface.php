@@ -9,10 +9,5 @@ namespace Spryker\Zed\AvailabilityNotification\Dependency\Service;
 
 interface AvailabilityNotificationToUtilValidateServiceInterface
 {
-    /**
-     * @param string $email
-     *
-     * @return bool
-     */
     public function isEmailFormatValid(string $email): bool;
 }

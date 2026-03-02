@@ -36,13 +36,6 @@ class AvailabilityNotificationBusinessTester extends Actor
      */
     public const DEFAULT_STORE_NAME = 'DE';
 
-    /**
-     * @param string $customerReference
-     * @param string $sku
-     * @param int $fkStore
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findAvailabilityNotificationByCustomerReferenceAndSku(
         string $customerReference,
         string $sku,

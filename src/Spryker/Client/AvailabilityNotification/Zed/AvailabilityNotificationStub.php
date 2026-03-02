@@ -20,9 +20,6 @@ class AvailabilityNotificationStub implements AvailabilityNotificationStubInterf
      */
     protected $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\AvailabilityNotification\Dependency\Client\AvailabilityNotificationToZedRequestClientInterface $zedRequestClient
-     */
     public function __construct(AvailabilityNotificationToZedRequestClientInterface $zedRequestClient)
     {
         $this->zedRequestClient = $zedRequestClient;

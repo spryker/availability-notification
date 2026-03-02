@@ -14,17 +14,11 @@ use Spryker\Client\Kernel\AbstractFactory;
 
 class AvailabilityNotificationFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\AvailabilityNotification\Zed\AvailabilityNotificationStubInterface
-     */
     public function createZedAvailabilityNotificationStub(): AvailabilityNotificationStubInterface
     {
         return new AvailabilityNotificationStub($this->getAvailabilityNotificationToZedRequestClient());
     }
 
-    /**
-     * @return \Spryker\Client\AvailabilityNotification\Dependency\Client\AvailabilityNotificationToZedRequestClientInterface
-     */
     public function getAvailabilityNotificationToZedRequestClient(): AvailabilityNotificationToZedRequestClientInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::CLIENT_ZED_REQUEST);

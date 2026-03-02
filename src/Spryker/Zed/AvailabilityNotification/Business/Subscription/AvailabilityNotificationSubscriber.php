@@ -48,14 +48,6 @@ class AvailabilityNotificationSubscriber implements AvailabilityNotificationSubs
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionSaverInterface $availabilityNotificationSubscriptionSaver
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Notification\AvailabilityNotificationSubscriptionSenderInterface $availabilityNotificationSubscriptionSender
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Service\AvailabilityNotificationToUtilValidateServiceInterface $utilValidateService
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionReaderInterface $availabilityNotificationSubscriptionReader
-     * @param \Spryker\Zed\AvailabilityNotification\AvailabilityNotificationConfig $availabilityNotificationConfig
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToProductFacadeInterface $productFacade
-     */
     public function __construct(
         AvailabilityNotificationSubscriptionSaverInterface $availabilityNotificationSubscriptionSaver,
         AvailabilityNotificationSubscriptionSenderInterface $availabilityNotificationSubscriptionSender,
@@ -72,11 +64,6 @@ class AvailabilityNotificationSubscriber implements AvailabilityNotificationSubs
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     public function subscribe(
         AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
     ): AvailabilityNotificationSubscriptionResponseTransfer {
@@ -108,38 +95,24 @@ class AvailabilityNotificationSubscriber implements AvailabilityNotificationSubs
             ->setAvailabilityNotificationSubscription($availabilityNotificationSubscriptionTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     protected function createInvalidEmailResponse(): AvailabilityNotificationSubscriptionResponseTransfer
     {
         return $this->createSubscriptionResponseTransfer(false)
             ->setErrorMessage(Messages::CUSTOMER_EMAIL_FORMAT_INVALID);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     protected function createSubscriptionAlreadyExistsResponse(): AvailabilityNotificationSubscriptionResponseTransfer
     {
         return $this->createSubscriptionResponseTransfer(false)
             ->setErrorMessage(SharedAvailabilityNotificationConfig::MESSAGE_SUBSCRIPTION_ALREADY_EXISTS);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     protected function createProductNotFoundResponse(): AvailabilityNotificationSubscriptionResponseTransfer
     {
         return $this->createSubscriptionResponseTransfer(false)
             ->setErrorMessage(SharedAvailabilityNotificationConfig::MESSAGE_PRODUCT_NOT_FOUND);
     }
 
-    /**
-     * @param bool $isSuccess
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     protected function createSubscriptionResponseTransfer(bool $isSuccess): AvailabilityNotificationSubscriptionResponseTransfer
     {
         return (new AvailabilityNotificationSubscriptionResponseTransfer())->setIsSuccess($isSuccess);

@@ -13,36 +13,12 @@ use Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer;
 
 interface AvailabilityNotificationRepositoryInterface
 {
-    /**
-     * @param string $email
-     * @param string $sku
-     * @param int $fkStore
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneByEmailAndSku(string $email, string $sku, int $fkStore): ?AvailabilityNotificationSubscriptionTransfer;
 
-    /**
-     * @param string $subscriptionKey
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneBySubscriptionKey(string $subscriptionKey): ?AvailabilityNotificationSubscriptionTransfer;
 
-    /**
-     * @param string $customerReference
-     * @param string $sku
-     * @param int $fkStore
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneByCustomerReferenceAndSku(string $customerReference, string $sku, int $fkStore): ?AvailabilityNotificationSubscriptionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationCriteriaTransfer $availabilityNotificationCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionCollectionTransfer
-     */
     public function getAvailabilityNotifications(
         AvailabilityNotificationCriteriaTransfer $availabilityNotificationCriteriaTransfer
     ): AvailabilityNotificationSubscriptionCollectionTransfer;

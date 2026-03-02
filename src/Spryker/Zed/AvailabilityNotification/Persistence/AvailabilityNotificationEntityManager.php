@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class AvailabilityNotificationEntityManager extends AbstractEntityManager implements AvailabilityNotificationEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return void
-     */
     public function saveAvailabilityNotificationSubscription(AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer): void
     {
         $availabilityNotificationSubscriptionTransfer->requireLocale();
@@ -34,11 +29,6 @@ class AvailabilityNotificationEntityManager extends AbstractEntityManager implem
         $subscriptionEntity->save();
     }
 
-    /**
-     * @param string $subscriptionKey
-     *
-     * @return void
-     */
     public function deleteBySubscriptionKey(string $subscriptionKey): void
     {
         $this->getFactory()
@@ -47,11 +37,6 @@ class AvailabilityNotificationEntityManager extends AbstractEntityManager implem
             ->delete();
     }
 
-    /**
-     * @param string $customerReference
-     *
-     * @return void
-     */
     public function deleteByCustomerReference(string $customerReference): void
     {
         $this->getFactory()

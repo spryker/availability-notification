@@ -12,10 +12,5 @@ use Spryker\Zed\AvailabilityNotification\Business\Strategy\BaseUrlGetStrategyInt
 
 interface BaseUrlGetStrategyResolverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Strategy\BaseUrlGetStrategyInterface|null
-     */
     public function resolveBaseUrlGetStrategy(?StoreTransfer $storeTransfer = null): ?BaseUrlGetStrategyInterface;
 }

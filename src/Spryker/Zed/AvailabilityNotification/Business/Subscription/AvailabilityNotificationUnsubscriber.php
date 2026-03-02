@@ -30,11 +30,6 @@ class AvailabilityNotificationUnsubscriber implements AvailabilityNotificationUn
      */
     protected $availabilityNotificationReader;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Persistence\AvailabilityNotificationEntityManagerInterface $entityManager
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Notification\AvailabilityNotificationUnsubscriptionSenderInterface $availabilityNotificationUnsubscriptionSender
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionReaderInterface $availabilityNotificationReader
-     */
     public function __construct(
         AvailabilityNotificationEntityManagerInterface $entityManager,
         AvailabilityNotificationUnsubscriptionSenderInterface $availabilityNotificationUnsubscriptionSender,
@@ -45,11 +40,6 @@ class AvailabilityNotificationUnsubscriber implements AvailabilityNotificationUn
         $this->availabilityNotificationReader = $availabilityNotificationReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     public function unsubscribeBySubscriptionKey(
         AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
     ): AvailabilityNotificationSubscriptionResponseTransfer {
@@ -66,11 +56,6 @@ class AvailabilityNotificationUnsubscriber implements AvailabilityNotificationUn
         return $this->createSuccessResponse($availabilityNotificationSubscriptionTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     public function unsubscribeByCustomerReferenceAndSku(
         AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
     ): AvailabilityNotificationSubscriptionResponseTransfer {
@@ -91,22 +76,12 @@ class AvailabilityNotificationUnsubscriber implements AvailabilityNotificationUn
         return $this->createSuccessResponse($availabilityNotificationSubscriptionTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return void
-     */
     protected function unsubscribe(AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer): void
     {
         $this->entityManager->deleteBySubscriptionKey($availabilityNotificationSubscriptionTransfer->getSubscriptionKey());
         $this->availabilityNotificationUnsubscriptionSender->send($availabilityNotificationSubscriptionTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     protected function createSuccessResponse(
         AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
     ): AvailabilityNotificationSubscriptionResponseTransfer {
@@ -115,9 +90,6 @@ class AvailabilityNotificationUnsubscriber implements AvailabilityNotificationUn
             ->setAvailabilityNotificationSubscription($availabilityNotificationSubscriptionTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     protected function createSubscriptionNotExistsResponse(): AvailabilityNotificationSubscriptionResponseTransfer
     {
         return (new AvailabilityNotificationSubscriptionResponseTransfer())

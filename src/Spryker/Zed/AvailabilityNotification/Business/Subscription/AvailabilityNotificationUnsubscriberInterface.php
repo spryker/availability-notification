@@ -12,20 +12,10 @@ use Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer;
 
 interface AvailabilityNotificationUnsubscriberInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     public function unsubscribeBySubscriptionKey(
         AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
     ): AvailabilityNotificationSubscriptionResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     public function unsubscribeByCustomerReferenceAndSku(
         AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
     ): AvailabilityNotificationSubscriptionResponseTransfer;

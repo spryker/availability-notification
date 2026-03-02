@@ -30,10 +30,6 @@ class UrlGenerator implements UrlGeneratorInterface
      */
     protected BaseUrlGetStrategyResolverInterface $baseUrlGetStrategyResolver;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\AvailabilityNotificationConfig $availabilityNotificationConfig
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Resolver\BaseUrlGetStrategyResolverInterface $baseUrlGetStrategyResolver
-     */
     public function __construct(
         AvailabilityNotificationConfig $availabilityNotificationConfig,
         BaseUrlGetStrategyResolverInterface $baseUrlGetStrategyResolver
@@ -42,11 +38,6 @@ class UrlGenerator implements UrlGeneratorInterface
         $this->baseUrlGetStrategyResolver = $baseUrlGetStrategyResolver;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return string
-     */
     public function createUnsubscriptionLink(AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer): string
     {
         $localeName = $availabilityNotificationSubscriptionTransfer->getLocaleOrFail()->getLocaleNameOrFail();
@@ -63,12 +54,6 @@ class UrlGenerator implements UrlGeneratorInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\LocalizedUrlTransfer $localizedUrlTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string
-     */
     public function generateProductUrl(
         LocalizedUrlTransfer $localizedUrlTransfer,
         ?StoreTransfer $storeTransfer = null
@@ -96,11 +81,6 @@ class UrlGenerator implements UrlGeneratorInterface
         return current($splitLocale);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string
-     */
     protected function getBaseUrl(?StoreTransfer $storeTransfer = null): string
     {
         $baseUrlGetStrategy = $this->baseUrlGetStrategyResolver->resolveBaseUrlGetStrategy($storeTransfer);

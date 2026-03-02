@@ -11,24 +11,9 @@ use Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer;
 
 interface AvailabilityNotificationEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return void
-     */
     public function saveAvailabilityNotificationSubscription(AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer): void;
 
-    /**
-     * @param string $subscriptionKey
-     *
-     * @return void
-     */
     public function deleteBySubscriptionKey(string $subscriptionKey): void;
 
-    /**
-     * @param string $customerReference
-     *
-     * @return void
-     */
     public function deleteByCustomerReference(string $customerReference): void;
 }

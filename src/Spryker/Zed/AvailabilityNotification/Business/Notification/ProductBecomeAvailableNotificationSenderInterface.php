@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\AvailabilityNotificationDataTransfer;
 
 interface ProductBecomeAvailableNotificationSenderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationDataTransfer $availabilityNotificationDataTransfer
-     *
-     * @return void
-     */
     public function send(AvailabilityNotificationDataTransfer $availabilityNotificationDataTransfer): void;
 }

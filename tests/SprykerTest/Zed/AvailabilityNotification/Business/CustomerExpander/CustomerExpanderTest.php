@@ -36,9 +36,6 @@ class CustomerExpanderTest extends Unit
      */
     protected AvailabilityNotificationBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandsCustomerTransferGetsCurrentStoreIfCustomerStoreNameIsNotProvided(): void
     {
         //Arrange
@@ -60,9 +57,6 @@ class CustomerExpanderTest extends Unit
         $customerExpander->expandCustomerTransferWithAvailabilityNotificationSubscriptionList($customerTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandsCustomerTransferGetsCustomerStoreNameIfItIsProvided(): void
     {
         //Arrange
@@ -122,9 +116,6 @@ class CustomerExpanderTest extends Unit
         return $availabilityNotificationSubscriptionReaderMock;
     }
 
-    /**
-     * @return void
-     */
     protected function setAvailabilityNotificationToMailFacadeDependency(): void
     {
         $this->tester->setDependency(

@@ -25,11 +25,6 @@ class BaseUrlGetStrategyResolver implements BaseUrlGetStrategyResolverInterface
         $this->baseUrlGetStrategies = $baseUrlGetStrategies;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Strategy\BaseUrlGetStrategyInterface|null
-     */
     public function resolveBaseUrlGetStrategy(?StoreTransfer $storeTransfer = null): ?BaseUrlGetStrategyInterface
     {
         foreach ($this->baseUrlGetStrategies as $baseUrlGetStrategy) {

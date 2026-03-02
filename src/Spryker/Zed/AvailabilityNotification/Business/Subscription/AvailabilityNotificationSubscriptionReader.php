@@ -25,10 +25,6 @@ class AvailabilityNotificationSubscriptionReader implements AvailabilityNotifica
      */
     protected $availabilityNotificationRepository;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\AvailabilityNotification\Persistence\AvailabilityNotificationRepositoryInterface $availabilityNotificationRepository
-     */
     public function __construct(
         AvailabilityNotificationToStoreFacadeInterface $storeFacade,
         AvailabilityNotificationRepositoryInterface $availabilityNotificationRepository
@@ -37,35 +33,18 @@ class AvailabilityNotificationSubscriptionReader implements AvailabilityNotifica
         $this->availabilityNotificationRepository = $availabilityNotificationRepository;
     }
 
-    /**
-     * @param string $email
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneByEmailAndSku(string $email, string $sku): ?AvailabilityNotificationSubscriptionTransfer
     {
         return $this->availabilityNotificationRepository
             ->findOneByEmailAndSku($email, $sku, $this->storeFacade->getCurrentStore()->getIdStore());
     }
 
-    /**
-     * @param string $subscriptionKey
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneBySubscriptionKey(string $subscriptionKey): ?AvailabilityNotificationSubscriptionTransfer
     {
         return $this->availabilityNotificationRepository
             ->findOneBySubscriptionKey($subscriptionKey);
     }
 
-    /**
-     * @param string $customerReference
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer|null
-     */
     public function findOneByCustomerReferenceAndSku(
         string $customerReference,
         string $sku
@@ -74,11 +53,6 @@ class AvailabilityNotificationSubscriptionReader implements AvailabilityNotifica
             ->findOneByCustomerReferenceAndSku($customerReference, $sku, $this->storeFacade->getCurrentStore()->getIdStore());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationCriteriaTransfer $availabilityNotificationCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionCollectionTransfer
-     */
     public function getAvailabilityNotifications(
         AvailabilityNotificationCriteriaTransfer $availabilityNotificationCriteriaTransfer
     ): AvailabilityNotificationSubscriptionCollectionTransfer {

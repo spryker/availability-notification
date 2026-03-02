@@ -19,17 +19,11 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class AvailabilityNotificationPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\AvailabilityNotification\Persistence\SpyAvailabilityNotificationSubscriptionQuery
-     */
     public function createAvailabilityNotificationSubscriptionQuery(): SpyAvailabilityNotificationSubscriptionQuery
     {
         return SpyAvailabilityNotificationSubscriptionQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Persistence\Propel\Mapper\AvailabilityNotificationSubscriptionMapperInterface
-     */
     public function createAvailabilityNotificationSubscriptionMapper(): AvailabilityNotificationSubscriptionMapperInterface
     {
         return new AvailabilityNotificationSubscriptionMapper();

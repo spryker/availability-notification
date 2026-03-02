@@ -25,22 +25,12 @@ class ProductAttributeFinder implements ProductAttributeFinderInterface
      */
     protected $urlGenerator;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\UrlGeneratorInterface $urlGenerator
-     */
     public function __construct(AvailabilityNotificationToProductFacadeInterface $productFacade, UrlGeneratorInterface $urlGenerator)
     {
         $this->productFacade = $productFacade;
         $this->urlGenerator = $urlGenerator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return string|null
-     */
     public function findProductName(ProductConcreteTransfer $productConcreteTransfer, LocaleTransfer $localeTransfer): ?string
     {
         $attributes = [];
@@ -54,13 +44,6 @@ class ProductAttributeFinder implements ProductAttributeFinderInterface
         return $attributes['name'] ?? null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return string|null
-     */
     public function findProductUrl(
         ProductConcreteTransfer $productConcreteTransfer,
         LocaleTransfer $localeTransfer,
@@ -83,11 +66,6 @@ class ProductAttributeFinder implements ProductAttributeFinderInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return string|null
-     */
     public function findExternalProductImage(ProductConcreteTransfer $productConcreteTransfer): ?string
     {
         if ($productConcreteTransfer->getImageSets()->count() === 0) {

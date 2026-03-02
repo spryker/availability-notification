@@ -21,17 +21,11 @@ class AvailabilityNotificationSubscriptionKeyGenerator implements AvailabilityNo
      */
     protected $utilTextService;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Service\AvailabilityNotificationToUtilTextServiceInterface $utilTextService
-     */
     public function __construct(AvailabilityNotificationToUtilTextServiceInterface $utilTextService)
     {
         $this->utilTextService = $utilTextService;
     }
 
-    /**
-     * @return string
-     */
     public function generateKey(): string
     {
         return $this->utilTextService->generateRandomString(static::DEFAULT_STRING_LENGTH);

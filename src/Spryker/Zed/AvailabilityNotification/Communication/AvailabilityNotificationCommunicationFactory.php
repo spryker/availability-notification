@@ -20,17 +20,11 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
  */
 class AvailabilityNotificationCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToMailFacadeInterface
-     */
     public function getMailFacade(): AvailabilityNotificationToMailFacadeInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::FACADE_MAIL);
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToGlossaryFacadeInterface
-     */
     public function getGlossaryFacade(): AvailabilityNotificationToGlossaryFacadeInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::FACADE_GLOSSARY);

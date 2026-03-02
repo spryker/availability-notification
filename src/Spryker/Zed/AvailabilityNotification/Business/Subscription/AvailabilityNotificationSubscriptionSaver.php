@@ -34,12 +34,6 @@ class AvailabilityNotificationSubscriptionSaver implements AvailabilityNotificat
      */
     protected $availabilityNotificationToLocaleFacade;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Persistence\AvailabilityNotificationEntityManagerInterface $entityManager
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionKeyGeneratorInterface $keyGenerator
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToStoreFacadeInterface $availabilityNotificationToStoreFacade
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToLocaleFacadeInterface $availabilityNotificationToLocaleFacade
-     */
     public function __construct(
         AvailabilityNotificationEntityManagerInterface $entityManager,
         AvailabilityNotificationSubscriptionKeyGeneratorInterface $keyGenerator,
@@ -52,11 +46,6 @@ class AvailabilityNotificationSubscriptionSaver implements AvailabilityNotificat
         $this->availabilityNotificationToLocaleFacade = $availabilityNotificationToLocaleFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer
-     */
     public function save(
         AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
     ): AvailabilityNotificationSubscriptionTransfer {

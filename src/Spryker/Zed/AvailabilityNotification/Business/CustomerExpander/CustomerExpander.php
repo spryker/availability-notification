@@ -24,10 +24,6 @@ class CustomerExpander implements CustomerExpanderInterface
      */
     protected $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionReaderInterface $availabilityNotificationSubscriptionReader
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         AvailabilityNotificationSubscriptionReaderInterface $availabilityNotificationSubscriptionReader,
         AvailabilityNotificationToStoreFacadeInterface $storeFacade
@@ -36,11 +32,6 @@ class CustomerExpander implements CustomerExpanderInterface
         $this->storeFacade = $storeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\CustomerTransfer
-     */
     public function expandCustomerTransferWithAvailabilityNotificationSubscriptionList(CustomerTransfer $customerTransfer): CustomerTransfer
     {
         $customerTransfer->requireCustomerReference();

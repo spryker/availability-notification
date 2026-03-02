@@ -18,19 +18,11 @@ class AvailabilityNotificationSubscriptionAnonymizer implements AvailabilityNoti
      */
     protected $entityManager;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Persistence\AvailabilityNotificationEntityManagerInterface $entityManager
-     */
     public function __construct(AvailabilityNotificationEntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     public function anonymizeSubscription(CustomerTransfer $customerTransfer): AvailabilityNotificationSubscriptionResponseTransfer
     {
         $customerTransfer->requireCustomerReference();

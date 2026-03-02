@@ -51,9 +51,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriberInterface
-     */
     public function createAvailabilityNotificationSubscriber(): AvailabilityNotificationSubscriberInterface
     {
         return new AvailabilityNotificationSubscriber(
@@ -66,9 +63,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationUnsubscriberInterface
-     */
     public function createAvailabilityNotificationUnsubscriber(): AvailabilityNotificationUnsubscriberInterface
     {
         return new AvailabilityNotificationUnsubscriber(
@@ -78,17 +72,11 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionKeyGeneratorInterface
-     */
     public function createSubscriptionKeyGenerator(): AvailabilityNotificationSubscriptionKeyGeneratorInterface
     {
         return new AvailabilityNotificationSubscriptionKeyGenerator($this->getUtilTextService());
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionSaverInterface
-     */
     public function createAvailabilityNotificationSubscriptionSaver(): AvailabilityNotificationSubscriptionSaverInterface
     {
         return new AvailabilityNotificationSubscriptionSaver(
@@ -99,9 +87,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Anonymizer\AvailabilityNotificationSubscriptionAnonymizerInterface
-     */
     public function createSubscriptionAnonymizer(): AvailabilityNotificationSubscriptionAnonymizerInterface
     {
         return new AvailabilityNotificationSubscriptionAnonymizer(
@@ -109,9 +94,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Notification\AvailabilityNotificationSubscriptionSenderInterface
-     */
     public function createAvailabilityNotificationSubscriptionSender(): AvailabilityNotificationSubscriptionSenderInterface
     {
         return new AvailabilityNotificationSubscriptionSender(
@@ -122,9 +104,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Notification\AvailabilityNotificationUnsubscriptionSenderInterface
-     */
     public function createAvailabilityNotificationUnsubscriptionSender(): AvailabilityNotificationUnsubscriptionSenderInterface
     {
         return new AvailabilityNotificationUnsubscriptionSender(
@@ -135,9 +114,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Notification\ProductBecomeAvailableNotificationSenderInterface
-     */
     public function createProductBecomeAvailableNotificationSender(): ProductBecomeAvailableNotificationSenderInterface
     {
         return new ProductBecomeAvailableNotificationSender(
@@ -149,9 +125,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Product\ProductAttributeFinderInterface
-     */
     public function createProductAttributesFinder(): ProductAttributeFinderInterface
     {
         return new ProductAttributeFinder(
@@ -160,9 +133,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Subscription\AvailabilityNotificationSubscriptionReaderInterface
-     */
     public function createAvailabilityNotificationReader(): AvailabilityNotificationSubscriptionReaderInterface
     {
         return new AvailabilityNotificationSubscriptionReader(
@@ -171,57 +141,36 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToMailFacadeInterface
-     */
     public function getMailFacade(): AvailabilityNotificationToMailFacadeInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::FACADE_MAIL);
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Service\AvailabilityNotificationToUtilValidateServiceInterface
-     */
     public function getUtilValidateService(): AvailabilityNotificationToUtilValidateServiceInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::SERVICE_UTIL_VALIDATE);
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Service\AvailabilityNotificationToUtilTextServiceInterface
-     */
     public function getUtilTextService(): AvailabilityNotificationToUtilTextServiceInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::SERVICE_UTIL_TEXT);
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToStoreFacadeInterface
-     */
     public function getStoreFacade(): AvailabilityNotificationToStoreFacadeInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::FACADE_STORE);
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): AvailabilityNotificationToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::FACADE_LOCALE);
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToProductFacadeInterface
-     */
     public function getProductFacade(): AvailabilityNotificationToProductFacadeInterface
     {
         return $this->getProvidedDependency(AvailabilityNotificationDependencyProvider::FACADE_PRODUCT);
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Subscription\UrlGeneratorInterface
-     */
     protected function createUrlGenerator(): UrlGeneratorInterface
     {
         return new UrlGenerator(
@@ -230,17 +179,11 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\CustomerExpander\CustomerExpanderInterface
-     */
     public function createCustomerExpander(): CustomerExpanderInterface
     {
         return new CustomerExpander($this->createAvailabilityNotificationReader(), $this->getStoreFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Strategy\BaseUrlGetStrategyInterface
-     */
     public function createStoreYvesBaseUrlGetStrategy(): BaseUrlGetStrategyInterface
     {
         return new StoreYvesBaseUrlGetStrategy(
@@ -259,9 +202,6 @@ class AvailabilityNotificationBusinessFactory extends AbstractBusinessFactory
         ];
     }
 
-    /**
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Resolver\BaseUrlGetStrategyResolverInterface
-     */
     public function createBaseUrlGetStrategyResolver(): BaseUrlGetStrategyResolverInterface
     {
         return new BaseUrlGetStrategyResolver($this->getBaseUrlGetStrategyList());

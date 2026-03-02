@@ -66,18 +66,12 @@ class AvailabilityNotificationFacadeTest extends Unit
      */
     protected $availabilityNotificationFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
         $this->availabilityNotificationFacade = $this->tester->getFacade();
     }
 
-    /**
-     * @return void
-     */
     public function testGuestSubscribeShouldSucceed(): void
     {
         /**
@@ -95,9 +89,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertTrue($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testCustomerSubscribeShouldSucceed(): void
     {
         /**
@@ -116,9 +107,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertTrue($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testSubscribeFailsWhenEmailIsInvalid(): void
     {
         /**
@@ -140,9 +128,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertFalse($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testSubscribeForAlreadySubscribedTypeShouldSucceed(): void
     {
         /**
@@ -160,9 +145,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertTrue($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testUnsubscribeBySubscriptionKeyShouldSucceed(): void
     {
         /**
@@ -180,9 +162,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertTrue($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testUnsubscribeByCustomerReferenceAndSkuShouldSucceed(): void
     {
         /**
@@ -203,9 +182,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertTrue($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testUnsubscribeWithIncorrectSubscriptionKeyShouldFail(): void
     {
         /**
@@ -227,9 +203,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertFalse($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testAnonymize(): void
     {
         $customer = $this->tester->haveCustomer();
@@ -259,9 +232,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertNull($result);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandCustomerTransferWithAvailabilityNotificationSubscriptionList(): void
     {
         $product1 = $this->tester->haveProduct();
@@ -299,9 +269,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetAvailabilityNotifications(): void
     {
         $product1 = $this->tester->haveProduct();
@@ -333,9 +300,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         $this->assertEquals(2, $availabilityNotificationSubscriptionCollectionTransfer->getAvailabilityNotificationSubscriptions()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testGetAvailabilityNotificationsShouldFilterNotificationSubscriptionsByStoreName(): void
     {
         // Arrange
@@ -391,9 +355,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     protected function mockMailDependency(): void
     {
         $this->tester
@@ -403,11 +364,6 @@ class AvailabilityNotificationFacadeTest extends Unit
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return void
-     */
     protected function mockStoreFacadeDependency(StoreTransfer $storeTransfer): void
     {
         $storeFacadeMock = $this->createMock(AvailabilityNotificationToStoreFacadeInterface::class);
@@ -419,11 +375,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
     protected function mockLocaleFacadeDependency(LocaleTransfer $localeTransfer): void
     {
         $localeFacadeMock = $this->createMock(AvailabilityNotificationToLocaleFacadeInterface::class);
@@ -435,11 +386,6 @@ class AvailabilityNotificationFacadeTest extends Unit
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return void
-     */
     protected function mockProductFacadeDependency(ProductConcreteTransfer $productConcreteTransfer): void
     {
         $productFacadeMock = $this->createMock(AvailabilityNotificationToProductFacadeInterface::class);

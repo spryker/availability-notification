@@ -57,11 +57,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
      */
     public const SERVICE_UTIL_TEXT = 'SERVICE_UTIL_TEXT';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = $this->addMailFacade($container);
@@ -74,11 +69,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = $this->addMailFacade($container);
@@ -87,11 +77,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT, function (Container $container) {
@@ -103,11 +88,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUtilValidateService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_VALIDATE, function (Container $container) {
@@ -117,11 +97,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUtilTextService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_TEXT, function (Container $container) {
@@ -131,11 +106,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStoreFacade(Container $container): Container
     {
         $container->set(static::FACADE_STORE, function (Container $container) {
@@ -145,11 +115,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addLocaleFacade(Container $container): Container
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {
@@ -159,11 +124,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMailFacade(Container $container): Container
     {
         $container->set(static::FACADE_MAIL, function (Container $container) {
@@ -173,11 +133,6 @@ class AvailabilityNotificationDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addGlossaryFacade(Container $container): Container
     {
         $container->set(static::FACADE_GLOSSARY, function (Container $container) {

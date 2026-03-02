@@ -45,13 +45,6 @@ class ProductBecomeAvailableNotificationSender implements ProductBecomeAvailable
      */
     protected $productAttributeFinder;
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToMailFacadeInterface $mailFacade
-     * @param \Spryker\Zed\AvailabilityNotification\Dependency\Facade\AvailabilityNotificationToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Subscription\UrlGeneratorInterface $urlGenerator
-     * @param \Spryker\Zed\AvailabilityNotification\Persistence\AvailabilityNotificationRepositoryInterface $availabilityNotificationRepository
-     * @param \Spryker\Zed\AvailabilityNotification\Business\Product\ProductAttributeFinderInterface $productAttributeFinder
-     */
     public function __construct(
         AvailabilityNotificationToMailFacadeInterface $mailFacade,
         AvailabilityNotificationToProductFacadeInterface $productFacade,
@@ -66,11 +59,6 @@ class ProductBecomeAvailableNotificationSender implements ProductBecomeAvailable
         $this->productAttributeFinder = $productAttributeFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationDataTransfer $availabilityNotificationDataTransfer
-     *
-     * @return void
-     */
     public function send(AvailabilityNotificationDataTransfer $availabilityNotificationDataTransfer): void
     {
         $availabilityNotificationSubscriptions = $this->availabilityNotificationRepository

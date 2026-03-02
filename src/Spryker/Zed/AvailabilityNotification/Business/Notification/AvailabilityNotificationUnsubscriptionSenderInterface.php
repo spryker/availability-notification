@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer;
 
 interface AvailabilityNotificationUnsubscriptionSenderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer
-     *
-     * @return void
-     */
     public function send(AvailabilityNotificationSubscriptionTransfer $availabilityNotificationSubscriptionTransfer): void;
 }

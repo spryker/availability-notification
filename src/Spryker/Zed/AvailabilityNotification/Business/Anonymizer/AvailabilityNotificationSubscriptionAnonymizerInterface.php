@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\CustomerTransfer;
 
 interface AvailabilityNotificationSubscriptionAnonymizerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\AvailabilityNotificationSubscriptionResponseTransfer
-     */
     public function anonymizeSubscription(CustomerTransfer $customerTransfer): AvailabilityNotificationSubscriptionResponseTransfer;
 }

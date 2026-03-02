@@ -211,11 +211,6 @@ class UrlGeneratorTest extends Unit
         return $availabilityNotificationConfigMock;
     }
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\AvailabilityNotificationConfig $availabilityNotificationConfig
-     *
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Subscription\UrlGeneratorInterface
-     */
     protected function createUrlGenerator(AvailabilityNotificationConfig $availabilityNotificationConfig): UrlGeneratorInterface
     {
         return new UrlGenerator(
@@ -224,11 +219,6 @@ class UrlGeneratorTest extends Unit
         );
     }
 
-    /**
-     * @param \Spryker\Zed\AvailabilityNotification\AvailabilityNotificationConfig $availabilityNotificationConfig
-     *
-     * @return \Spryker\Zed\AvailabilityNotification\Business\Resolver\BaseUrlGetStrategyResolverInterface
-     */
     protected function createBaseUrlGetStrategyResolver(AvailabilityNotificationConfig $availabilityNotificationConfig): BaseUrlGetStrategyResolverInterface
     {
         return new BaseUrlGetStrategyResolver([
