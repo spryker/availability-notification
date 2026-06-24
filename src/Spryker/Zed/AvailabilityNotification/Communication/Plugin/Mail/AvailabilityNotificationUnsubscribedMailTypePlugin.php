@@ -21,6 +21,8 @@ use Spryker\Zed\Mail\Dependency\Plugin\MailTypePluginInterface;
 class AvailabilityNotificationUnsubscribedMailTypePlugin extends AbstractPlugin implements MailTypePluginInterface
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const AVAILABILITY_NOTIFICATION_UNSUBSCRIBED_MAIL = 'AVAILABILITY_NOTIFICATION_UNSUBSCRIBED_MAIL';

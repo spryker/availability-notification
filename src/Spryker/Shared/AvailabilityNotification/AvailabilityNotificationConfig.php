@@ -12,16 +12,22 @@ use Spryker\Shared\Kernel\AbstractBundleConfig;
 class AvailabilityNotificationConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const MESSAGE_PRODUCT_NOT_FOUND = 'Product not found.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const MESSAGE_SUBSCRIPTION_ALREADY_EXISTS = 'Subscription already exists.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const MESSAGE_SUBSCRIPTION_DOES_NOT_EXIST = "Subscription doesn't exist.";
