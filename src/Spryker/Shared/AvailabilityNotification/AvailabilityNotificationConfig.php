@@ -7,9 +7,9 @@
 
 namespace Spryker\Shared\AvailabilityNotification;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
+use Spryker\Shared\Kernel\AbstractSharedConfig;
 
-class AvailabilityNotificationConfig extends AbstractBundleConfig
+class AvailabilityNotificationConfig extends AbstractSharedConfig
 {
     /**
      * @api
